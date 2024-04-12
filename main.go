@@ -50,4 +50,8 @@ func main() {
 	fmt.Println(s5, len(s5), cap(s5))
 	s5 = append(s5, 30)
 	fmt.Println(s5, len(s5), cap(s5))
+
+	s6 := []int{10, 20, 30}
+	s7 := s6[:2]
+	fmt.Println(s7) // [10 20] 0番目から2の手前（オフセット）まで
 }
