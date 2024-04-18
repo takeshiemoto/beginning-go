@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math/rand"
+	"time"
+)
 
 func main() {
 	// capの増え方
@@ -66,4 +70,19 @@ func main() {
 		fmt.Println(shadow) // 5
 	}
 	fmt.Println(shadow) // 10
+
+	// if
+	// 乱数生成
+	r := rand.New(rand.NewSource(time.Now().UnixNano()))
+	// nにランダムな数字を定義
+	// n == 0が条件
+	// nはelseブロックまで有効である
+	if n := r.Intn(10); n == 0 {
+		fmt.Println("少し小さすぎます", n)
+	} else if n > 5 {
+		fmt.Println("少し大きすぎる")
+	} else {
+		fmt.Println("良い感じ")
+	}
+
 }
