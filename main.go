@@ -54,4 +54,16 @@ func main() {
 	s6 := []int{10, 20, 30}
 	s7 := s6[:2]
 	fmt.Println(s7) // [10 20] 0番目から2の手前（オフセット）まで
+
+	// シャドーイング
+	// Goではシャドーイングが可能だが極力避けるべき
+	// 標準パッケージまでもシャドーイングされる可能性がある
+	// linterで検知したい
+	shadow := 10
+	if shadow > 5 {
+		fmt.Println(shadow) // 10
+		shadow := 5
+		fmt.Println(shadow) // 5
+	}
+	fmt.Println(shadow) // 10
 }
